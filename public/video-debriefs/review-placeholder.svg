@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#07111f"/>
+  <rect x="50" y="52" width="1100" height="656" fill="#0b1728" stroke="#375273" stroke-width="3"/>
+  <rect x="92" y="98" width="680" height="360" fill="#111827"/>
+  <rect x="92" y="492" width="680" height="52" fill="#13243a"/>
+  <rect x="180" y="508" width="472" height="20" rx="10" fill="#315d91"/>
+  <rect x="238" y="500" width="16" height="36" fill="#ff6fcf"/>
+  <rect x="594" y="500" width="16" height="36" fill="#ff6fcf"/>
+  <circle cx="370" cy="518" r="17" fill="#74d3ff"/>
+  <circle cx="505" cy="518" r="17" fill="#74d3ff"/>
+  <rect x="820" y="98" width="286" height="74" fill="#13243a"/>
+  <rect x="820" y="208" width="286" height="74" fill="#13243a"/>
+  <rect x="820" y="318" width="286" height="74" fill="#13243a"/>
+  <rect x="820" y="492" width="286" height="132" fill="#121f34"/>
+  <text x="122" y="288" fill="#f6f8ff" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="900">Clip review</text>
+  <text x="850" y="144" fill="#c3cede" font-family="Arial, Helvetica, sans-serif" font-size="26">Student name</text>
+  <text x="850" y="254" fill="#c3cede" font-family="Arial, Helvetica, sans-serif" font-size="26">Clip title</text>
+  <text x="850" y="364" fill="#c3cede" font-family="Arial, Helvetica, sans-serif" font-size="26">Timed notes</text>
+  <text x="850" y="548" fill="#74d3ff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Ready / Included</text>
+</svg>
