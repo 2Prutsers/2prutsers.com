@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
 
 const workflow = [
   {
@@ -23,12 +24,48 @@ const workflow = [
 ];
 
 const controls = [
-  "Space: play or pause",
-  "Double right: next marker",
-  "Triple right: next clip",
-  "Double left: previous marker",
-  "Triple left: start or previous clip",
-  "Escape: end presentation",
+  {
+    icon: "/video-debriefs/10.arrow.trianglehead.counterclockwise.png",
+    iconClassName: "h-9 w-9",
+    keys: ["⇧", "←"],
+    title: "Seek back",
+    symbol: "gobackward.10",
+  },
+  {
+    icon: "/video-debriefs/10.arrow.trianglehead.clockwise.png",
+    iconClassName: "h-9 w-9",
+    keys: ["⇧", "→"],
+    title: "Seek forward",
+    symbol: "goforward.10",
+  },
+  {
+    icon: "/video-debriefs/backward.frame.fill.png",
+    iconClassName: "h-6 w-10",
+    keys: ["←", "←"],
+    title: "Previous marker",
+    symbol: "backward.frame.fill",
+  },
+  {
+    icon: "/video-debriefs/forward.frame.fill.png",
+    iconClassName: "h-6 w-10",
+    keys: ["→", "→"],
+    title: "Next marker",
+    symbol: "forward.frame.fill",
+  },
+  {
+    icon: "/video-debriefs/backward.end.fill.png",
+    iconClassName: "h-5 w-9",
+    keys: ["↑"],
+    title: "Previous clip",
+    symbol: "backward.end.fill",
+  },
+  {
+    icon: "/video-debriefs/forward.end.fill.png",
+    iconClassName: "h-5 w-9",
+    keys: ["↓"],
+    title: "Next clip",
+    symbol: "forward.end.fill",
+  },
 ];
 
 export default function VideoDebriefsPage() {
@@ -71,6 +108,24 @@ export default function VideoDebriefsPage() {
         </div>
 
         <div className="relative">
+          <div className="mb-6 flex items-center gap-4">
+            <Image
+              src="/video-debriefs/app-icon.svg"
+              alt="Video Debriefs app icon"
+              width={96}
+              height={96}
+              priority
+              className="h-20 w-20 rounded-[22px] shadow-2xl shadow-black/40 sm:h-24 sm:w-24"
+            />
+            <div>
+              <p className="text-2xl font-black leading-none text-[#f6f8ff] sm:text-3xl">
+                Video Debriefs
+              </p>
+              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#74d3ff]">
+                Built for GUE dive instructors
+              </p>
+            </div>
+          </div>
           <div className="absolute -inset-4 bg-[#7a38ff]/20 blur-3xl" />
           <video
             className="relative aspect-video w-full border border-[#375273] bg-black object-cover shadow-2xl shadow-black/40"
@@ -171,10 +226,38 @@ export default function VideoDebriefsPage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {controls.map((control) => (
               <div
-                key={control}
-                className="border border-[#cad6e4] bg-white px-5 py-4 text-base font-semibold"
+                key={control.title}
+                className="flex min-h-32 items-center gap-4 border border-[#202833] bg-black px-5 py-4 text-white"
               >
-                {control}
+                <span
+                  className="grid h-14 w-14 shrink-0 place-items-center bg-black text-2xl font-black text-white"
+                  aria-hidden="true"
+                >
+                  <Image
+                    src={control.icon}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={`${control.iconClassName} object-contain invert`}
+                  />
+                </span>
+                <span className="min-w-0">
+                  <span className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <span className="text-base font-bold">
+                      {control.title}
+                    </span>
+                    <KbdGroup>
+                      {control.keys.map((key, index) => (
+                        <Kbd
+                          key={`${control.title}-${key}-${index}`}
+                          className="border-[#455366] bg-[#101722] text-[#f6f8ff]"
+                        >
+                          {key}
+                        </Kbd>
+                      ))}
+                    </KbdGroup>
+                  </span>
+                </span>
               </div>
             ))}
           </div>
