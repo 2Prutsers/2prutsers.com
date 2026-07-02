@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 2Prutsers.com
 
-## Getting Started
+Static [Next.js](https://nextjs.org) site for `2prutsers.com`, configured for
+GitHub Pages with a custom apex domain.
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Static export
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+```
 
-## Learn More
+The production static site is generated in `out/`.
 
-To learn more about Next.js, take a look at the following resources:
+## GitHub Pages setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repository to GitHub with `main` as the default branch.
+2. In GitHub, open **Settings -> Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Confirm the custom domain is `2prutsers.com`.
+5. Enable **Enforce HTTPS** after GitHub finishes issuing the certificate.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The `public/CNAME` file is included in the static export so GitHub Pages keeps
+the custom domain during deployments.
 
-## Deploy on Vercel
+## DNS records
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+At your DNS provider, point the apex domain `2prutsers.com` to GitHub Pages:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+AAAA  @     2606:50c0:8000::153
+AAAA  @     2606:50c0:8001::153
+AAAA  @     2606:50c0:8002::153
+AAAA  @     2606:50c0:8003::153
+```
+
+For `www.2prutsers.com`, add:
+
+```text
+CNAME www   <your-github-username>.github.io
+```
+
+Then add `www.2prutsers.com` as an alternate domain or redirect it at your DNS
+provider, depending on the behavior you want.
