@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     template: "%s | 2Prutsers",
   },
   description: "The static website for 2Prutsers.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
