@@ -573,15 +573,3 @@ body {
     filter: saturate(1.35) contrast(1.12);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .glitch-scene::before,
-  .glitch-scene::after,
-  .glitch-title,
-  .glitch-title::before,
-  .glitch-title::after,
-  .word-pixels,
-  .word-pixels::before {
-    animation: none;
-  }
-}
