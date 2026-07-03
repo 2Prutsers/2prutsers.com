@@ -29,9 +29,7 @@ export default function DownloadsPage() {
           Download
         </h1>
         <p className="mt-6 text-lg leading-8 text-[#c3cede]">
-          Video Debriefs requires macOS 14 Sonoma or later. The app is not
-          signed with an Apple Developer certificate, so you&apos;ll need to
-          follow a one-time step to allow it to run.
+          Video Debriefs requires macOS 14 Sonoma or later.
         </p>
 
         <div className="mt-10">
@@ -70,77 +68,36 @@ export default function DownloadsPage() {
         </div>
 
         <div className="mt-16 border-t border-[#1c314f] pt-14">
-          <h2 className="text-2xl font-black text-[#f6f8ff]">
-            How to install
-          </h2>
-          <p className="mt-4 leading-7 text-[#b7c4d7]">
-            Because the app is not notarized, macOS will refuse to open it the
-            normal way. Follow these steps the first time:
-          </p>
-
-          <ol className="mt-8 space-y-8">
+          <h2 className="text-2xl font-black text-[#f6f8ff]">How to install</h2>
+          <ol className="mt-6 space-y-6">
             <li className="flex gap-5">
               <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 1
               </span>
-              <div>
-                <p className="font-bold text-[#f6f8ff]">Open the DMG</p>
-                <p className="mt-1 leading-7 text-[#b7c4d7]">
-                  Double-click the downloaded <code className="rounded bg-[#0b1728] px-1.5 py-0.5 font-mono text-sm text-[#74d3ff]">{dmgFilename}</code> file to mount it. Drag{" "}
-                  <strong>Video Debriefs.app</strong> into your{" "}
-                  <strong>Applications</strong> folder.
-                </p>
-              </div>
+              <p className="leading-7 text-[#b7c4d7]">
+                Double-click the downloaded{" "}
+                <code className="rounded bg-[#0b1728] px-1.5 py-0.5 font-mono text-sm text-[#74d3ff]">
+                  {dmgFilename}
+                </code>{" "}
+                to mount it.
+              </p>
             </li>
-
             <li className="flex gap-5">
               <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 2
               </span>
-              <div>
-                <p className="font-bold text-[#f6f8ff]">Right-click to open</p>
-                <p className="mt-1 leading-7 text-[#b7c4d7]">
-                  In Finder, navigate to{" "}
-                  <strong>Applications → Video Debriefs.app</strong>.{" "}
-                  <strong>Right-click</strong> (or Control-click) the app and
-                  choose <strong>Open</strong> from the menu.
-                </p>
-              </div>
+              <p className="leading-7 text-[#b7c4d7]">
+                Drag <strong className="text-white">Video Debriefs.app</strong> into your{" "}
+                <strong className="text-white">Applications</strong> folder.
+              </p>
             </li>
-
             <li className="flex gap-5">
               <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 3
               </span>
-              <div>
-                <p className="font-bold text-[#f6f8ff]">
-                  Confirm in the dialog
-                </p>
-                <p className="mt-1 leading-7 text-[#b7c4d7]">
-                  macOS will show a dialog saying the developer cannot be
-                  verified. Click <strong>Open</strong>. The app will launch and
-                  macOS will remember your choice — you won&apos;t need to do
-                  this again.
-                </p>
-              </div>
-            </li>
-
-            <li className="flex gap-5">
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
-                4
-              </span>
-              <div>
-                <p className="font-bold text-[#f6f8ff]">
-                  If macOS blocks it anyway
-                </p>
-                <p className="mt-1 leading-7 text-[#b7c4d7]">
-                  Open <strong>System Settings → Privacy &amp; Security</strong>.
-                  Scroll down to the Security section — you&apos;ll see a message
-                  about Video Debriefs being blocked. Click{" "}
-                  <strong>Open Anyway</strong>, then authenticate with your
-                  password or Touch ID.
-                </p>
-              </div>
+              <p className="leading-7 text-[#b7c4d7]">
+                Open the app. macOS will verify it and launch.
+              </p>
             </li>
           </ol>
         </div>
