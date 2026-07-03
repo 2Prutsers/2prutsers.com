@@ -105,6 +105,14 @@ export default function VideoDebriefsPage() {
               Request access
             </a>
           </div>
+          <div className="mt-6 rounded border border-[#1c314f] bg-[#0b1728] px-5 py-4">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7f97]">
+              Or install with Homebrew
+            </p>
+            <code className="font-mono text-sm text-[#74d3ff]">
+              brew install --cask 2Prutsers/tap/video-debriefs
+            </code>
+          </div>
         </div>
 
         <div className="relative">

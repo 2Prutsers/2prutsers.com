@@ -55,6 +55,20 @@ export default function DownloadsPage() {
           <p className="mt-3 text-xs text-[#6b7f97]">3.3 MB · macOS 14+</p>
         </div>
 
+        <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-[#6b7f97]">
+          Or install with Homebrew
+        </p>
+
+        <div className="mt-3 rounded border border-[#1c314f] bg-[#0b1728] px-5 py-4">
+          <code className="font-mono text-sm text-[#74d3ff]">
+            brew install --cask 2Prutsers/tap/video-debriefs
+          </code>
+          <p className="mt-3 text-xs text-[#6b7f97]">
+            Homebrew handles download, verification, and future upgrades via{" "}
+            <code className="text-[#9fb4d1]">brew upgrade --cask video-debriefs</code>.
+          </p>
+        </div>
+
         <div className="mt-16 border-t border-[#1c314f] pt-14">
           <h2 className="text-2xl font-black text-[#f6f8ff]">
             How to install
