@@ -92,17 +92,17 @@ export default function VideoDebriefsPage() {
             controls.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="mailto:video-debriefs@2prutsers.com"
+            <Link
+              href="/video-debriefs/downloads"
               className="inline-flex h-12 items-center justify-center bg-[#ff6fcf] px-6 text-sm font-bold uppercase tracking-[0.16em] text-[#130c24] transition hover:bg-[#ff9dde]"
             >
-              Request access
-            </a>
+              Download for macOS
+            </Link>
             <a
-              href="#media-needed"
+              href="mailto:video-debriefs@2prutsers.com"
               className="inline-flex h-12 items-center justify-center border border-[#375273] px-6 text-sm font-bold uppercase tracking-[0.16em] text-[#d9e7ff] transition hover:border-[#74d3ff] hover:text-white"
             >
-              Media placeholders
+              Request access
             </a>
           </div>
         </div>
