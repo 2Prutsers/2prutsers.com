@@ -1,8 +1,8 @@
 {
-  "version": "0.2",
-  "build": "v0.2",
+  "version": "0.3",
+  "build": "v0.3",
   "releaseDate": "2026-07-04",
-  "url": "https://2prutsers.com/video-debriefs/downloads/Video%20Debriefs%20v0.2.dmg",
+  "url": "https://2prutsers.com/video-debriefs/downloads/Video%20Debriefs%20v0.3.dmg",
   "minimumSystemVersion": "14.0",
   "releaseNotes": "Bug fixes and improvements."
 }

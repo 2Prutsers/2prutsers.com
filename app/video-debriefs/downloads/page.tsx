@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Download Video Debriefs for macOS — a native app for GUE dive instructors to run video debriefs from GoPro footage.",
 };
 
-const version = "0.1";
+const version = "0.3";
 const dmgFilename = `Video Debriefs v${version}.dmg`;
 const dmgUrl = `/video-debriefs/downloads/${encodeURIComponent(dmgFilename)}`;
 
@@ -50,7 +50,7 @@ export default function DownloadsPage() {
             </svg>
             Download {dmgFilename}
           </a>
-          <p className="mt-3 text-xs text-[#6b7f97]">3.3 MB · macOS 14+</p>
+          <p className="mt-3 text-xs text-[#6b7f97]">3.8 MB · macOS 14+</p>
         </div>
 
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-[#6b7f97]">
