@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CausticOverlay } from "../CausticOverlay";
 
 export const metadata: Metadata = {
   title: "Download Video Debriefs",
@@ -20,6 +21,14 @@ export default function DownloadsPage() {
           "linear-gradient(to bottom, #6ecad8 0%, #1a5c7a 18%, #0a2e48 35%, #041828 55%, #020c18 75%, #010810 100%)",
       }}
     >
+      <style>{`
+        .btn-coral-neon:hover {
+          background: linear-gradient(135deg, #ffe000 0%, #ffb300 100%) !important;
+          box-shadow: 0 0 22px rgba(255,220,0,0.7), 0 0 50px rgba(255,200,0,0.35) !important;
+          color: #1a0a00 !important;
+        }
+      `}</style>
+      <CausticOverlay />
       {/* Nav */}
       <nav className="mx-auto flex w-[90%] items-center justify-between py-5">
         <Link
@@ -142,7 +151,11 @@ export default function DownloadsPage() {
             <a
               href="/video-debriefs/downloads/Video%20Debriefs%20Samples.dmg"
               download
-              className="inline-flex h-12 items-center gap-3 rounded-full border border-white/20 px-6 text-sm font-bold uppercase tracking-[0.16em] text-white/75 transition hover:border-[#7dd8e8] hover:text-white"
+              className="btn-coral-neon inline-flex h-12 items-center gap-3 rounded-full px-6 text-sm font-bold uppercase tracking-[0.16em] text-white transition-all duration-300"
+              style={{
+                background: "linear-gradient(135deg, #ff3f7a 0%, #ff6b3d 100%)",
+                boxShadow: "0 0 18px rgba(255,80,80,0.55), 0 0 40px rgba(255,60,100,0.25)",
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

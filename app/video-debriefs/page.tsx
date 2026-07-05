@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { CausticOverlay } from "./CausticOverlay";
 
 const workflow = [
   {
@@ -103,9 +104,10 @@ function MacBookFrame({
 
 export default function VideoDebriefsPage() {
   return (
-    <main className="min-h-dvh text-white" style={{
+    <main className="relative min-h-dvh text-white" style={{
       background: "linear-gradient(to bottom, #6ecad8 0%, #1a5c7a 18%, #0a2e48 35%, #041828 55%, #020c18 75%, #010810 100%)"
     }}>
+      <CausticOverlay />
       {/* Nav */}
       <nav className="mx-auto flex w-[90%] items-center justify-between py-5">
         <Link
