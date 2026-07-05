@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CausticOverlay } from "../CausticOverlay";
+import { CausticOverlay } from "@/app/components/CausticOverlay";
 
 export const metadata: Metadata = {
   title: "Download Video Debriefs",

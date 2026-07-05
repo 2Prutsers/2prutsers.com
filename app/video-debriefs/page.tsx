@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
-import { CausticOverlay } from "./CausticOverlay";
+import { CausticOverlay } from "@/app/components/CausticOverlay";
 
 const workflow = [
   {
