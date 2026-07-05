@@ -11,5 +11,20 @@ export default function VideoDebriefsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <style>{`
+        html { background: #010810; }
+        @keyframes body-bg {
+          from { background: #6ecad8; }
+          to   { background: #010810; }
+        }
+        html body {
+          animation: body-bg linear both;
+          animation-timeline: scroll(root);
+        }
+      `}</style>
+      {children}
+    </>
+  );
 }
