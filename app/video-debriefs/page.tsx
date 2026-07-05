@@ -4,20 +4,23 @@ import { Kbd, KbdGroup } from "@/components/ui/kbd";
 
 const workflow = [
   {
+    step: "01",
     title: "Import from the dive day",
-    body: "Detect a GoPro SD card, pick the recording date, and copy or link footage into a session library. Multi-chapter GoPro files are grouped into one clip.",
+    body: "Plug in your GoPro while the app is open and it detects the SD card automatically. Pick the recording date, bring in the footage, then eject the card — all without leaving the app or touching Finder. Multi-chapter GoPro files are grouped into one clip.",
     image: "/video-debriefs/import.png",
     alt: "Video Debriefs import screen showing GoPro footage import options",
   },
   {
+    step: "02",
     title: "Review, trim, and annotate",
-    body: "Open each clip, set in and out points, add timed teaching notes, mark student names and titles, and decide what belongs in the presentation.",
+    body: "Open each clip, set in and out points, add timed teaching notes, mark student names and titles, reorder clips if needed, and decide what belongs in the presentation.",
     image: "/video-debriefs/review.png",
     alt: "Video Debriefs review screen showing clip playback, trimming, and notes",
   },
   {
+    step: "03",
     title: "Present with a clicker",
-    body: "Run a fullscreen debrief with title cards, marker overlays, audio fades, AirPlay output, and single, double, or triple clicker taps for navigation.",
+    body: "Run a fullscreen debrief in front of your students with automatic pauses before each clip. Students can control playback from the keyboard while you stand back and navigate with a Bluetooth clicker. Title cards, marker overlays, audio fades, and AirPlay output included.",
     image: "/video-debriefs/present.png",
     alt: "Video Debriefs presentation screen showing fullscreen debrief playback",
   },
@@ -29,218 +32,258 @@ const controls = [
     iconClassName: "h-9 w-9",
     keys: ["⇧", "←"],
     title: "Seek back",
-    symbol: "gobackward.10",
   },
   {
     icon: "/video-debriefs/10.arrow.trianglehead.clockwise.png",
     iconClassName: "h-9 w-9",
     keys: ["⇧", "→"],
     title: "Seek forward",
-    symbol: "goforward.10",
   },
   {
     icon: "/video-debriefs/backward.frame.fill.png",
     iconClassName: "h-6 w-10",
     keys: ["←", "←"],
     title: "Previous marker",
-    symbol: "backward.frame.fill",
   },
   {
     icon: "/video-debriefs/forward.frame.fill.png",
     iconClassName: "h-6 w-10",
     keys: ["→", "→"],
     title: "Next marker",
-    symbol: "forward.frame.fill",
   },
   {
     icon: "/video-debriefs/backward.end.fill.png",
     iconClassName: "h-5 w-9",
     keys: ["↑"],
     title: "Previous clip",
-    symbol: "backward.end.fill",
   },
   {
     icon: "/video-debriefs/forward.end.fill.png",
     iconClassName: "h-5 w-9",
     keys: ["↓"],
     title: "Next clip",
-    symbol: "forward.end.fill",
   },
 ];
 
+function MacBookFrame({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <div className="relative w-full" style={{ aspectRatio: "3400 / 2240" }}>
+      <div
+        className="absolute overflow-hidden bg-transparent"
+        style={{ top: "8.80%", left: "12.30%", width: "75.36%", height: "82.40%" }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          priority={priority}
+        />
+      </div>
+      <Image
+        src="/video-debriefs/macbook-silver-13.png"
+        alt=""
+        fill
+        loading="eager"
+        className="pointer-events-none select-none"
+        style={{ zIndex: 10 }}
+        priority={priority}
+      />
+    </div>
+  );
+}
+
 export default function VideoDebriefsPage() {
   return (
-    <main className="min-h-dvh bg-[#07111f] text-white">
-      <section className="mx-auto grid min-h-dvh w-full max-w-7xl items-center gap-12 px-6 py-10 sm:px-10 lg:grid-cols-[1fr_0.92fr] lg:px-16">
-        <div>
+    <main className="min-h-dvh text-white" style={{
+      background: "linear-gradient(to bottom, #6ecad8 0%, #1a5c7a 18%, #0a2e48 35%, #041828 55%, #020c18 75%, #010810 100%)"
+    }}>
+      {/* Nav */}
+      <nav className="mx-auto flex w-[90%] items-center justify-between py-5">
+        <Link
+          href="/"
+          className="text-base font-semibold uppercase tracking-[0.22em] text-white/60 transition hover:text-white"
+        >
+          2Prutsers
+        </Link>
+        <Link
+          href="/video-debriefs/downloads"
+          className="inline-flex h-10 items-center rounded-full bg-[#ff6fcf] px-5 text-sm font-bold uppercase tracking-[0.14em] text-[#130c24] transition hover:bg-[#ff9dde]"
+        >
+          Download
+        </Link>
+      </nav>
+
+      {/* Hero */}
+      <section className="relative mx-auto w-[90%] pb-8 pt-8 text-center">
+        <div className="relative mb-6 flex justify-center">
+          <Image
+            src="/video-debriefs/app-icon.svg"
+            alt="Video Debriefs"
+            width={80}
+            height={80}
+            className="rounded-[20px] shadow-xl shadow-black/30"
+            priority
+          />
+        </div>
+
+        <p className="relative mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-white/60">
+          macOS app for GUE instructors
+        </p>
+
+        <h1 className="relative mb-6 text-6xl font-black leading-[0.93] tracking-tight text-white sm:text-7xl lg:text-8xl">
+          Video debriefs built around
+          <br className="hidden sm:block" /> the teaching workflow.
+        </h1>
+
+        <p className="relative mx-auto mb-10 max-w-2xl text-lg leading-8 text-white/70">
+          Import GoPro footage, prepare each student clip, add timed notes, and
+          present the whole session fullscreen with Bluetooth clicker controls.
+        </p>
+
+        <div className="relative mb-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
-            href="/"
-            className="mb-12 inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-[#9fb4d1] transition hover:text-white"
+            href="/video-debriefs/downloads"
+            className="inline-flex h-13 items-center rounded-full bg-[#ff6fcf] px-8 text-base font-bold uppercase tracking-[0.14em] text-[#130c24] transition hover:bg-[#ff9dde]"
           >
-            2Prutsers
+            Download for macOS
           </Link>
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.24em] text-[#74d3ff]">
-            Native macOS app for GUE instructors
-          </p>
-          <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-normal text-[#f6f8ff] sm:text-7xl lg:text-8xl">
-            Video debriefs for dive training, built around the real teaching
-            workflow.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#c3cede]">
-            Import GoPro footage, prepare each student clip, add timed notes,
-            and present the whole session fullscreen with Bluetooth clicker
-            controls.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/video-debriefs/downloads"
-              className="inline-flex h-12 items-center justify-center bg-[#ff6fcf] px-6 text-sm font-bold uppercase tracking-[0.16em] text-[#130c24] transition hover:bg-[#ff9dde]"
-            >
-              Download for macOS
-            </Link>
-            <a
-              href="mailto:video-debriefs@2prutsers.com"
-              className="inline-flex h-12 items-center justify-center border border-[#375273] px-6 text-sm font-bold uppercase tracking-[0.16em] text-[#d9e7ff] transition hover:border-[#74d3ff] hover:text-white"
-            >
-              Request access
-            </a>
-          </div>
-          <div className="mt-6 rounded border border-[#1c314f] bg-[#0b1728] px-5 py-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7f97]">
+        </div>
+
+        <div className="relative mb-12 flex justify-center">
+          <div className="rounded-xl border border-white/15 bg-black/20 px-5 py-3 text-left backdrop-blur-sm">
+            <p className="mb-1 text-sm font-semibold uppercase tracking-[0.18em] text-white/40">
               Or install with Homebrew
             </p>
-            <code className="font-mono text-sm text-[#74d3ff]">
+            <code className="font-mono text-base text-[#7dd8e8]">
               brew install --cask 2Prutsers/tap/video-debriefs
             </code>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="mb-6 flex items-center gap-4">
-            <Image
-              src="/video-debriefs/app-icon.svg"
-              alt="Video Debriefs app icon"
-              width={96}
-              height={96}
-              priority
-              className="h-20 w-20 rounded-[22px] shadow-2xl shadow-black/40 sm:h-24 sm:w-24"
-            />
-            <div>
-              <p className="text-2xl font-black leading-none text-[#f6f8ff] sm:text-3xl">
-                Video Debriefs
-              </p>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#74d3ff]">
-                Built for GUE dive instructors
-              </p>
-            </div>
-          </div>
-          <div className="absolute -inset-4 bg-[#7a38ff]/20 blur-3xl" />
-          <video
-            className="relative aspect-video w-full border border-[#375273] bg-black object-cover shadow-2xl shadow-black/40"
-            controls
-            muted
-            playsInline
-            poster="/video-debriefs/hero-poster.svg"
-          >
-            <source
-              src="/video-debriefs/walkthrough-placeholder.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <p className="mt-4 text-sm leading-6 text-[#93a7c3]">
-            Placeholder video: replace with a 60-90 second walkthrough showing
-            import, review, marker editing, and presentation mode.
-          </p>
+        {/* Hero MacBook mockup */}
+        <div className="relative drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+          <MacBookFrame
+            src="/video-debriefs/hero.png"
+            alt="Video Debriefs in presentation mode on a MacBook"
+            priority
+          />
         </div>
       </section>
 
-      <section className="border-y border-[#1c314f] bg-[#0b1728] px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
-          <div>
-            <p className="text-4xl font-black text-[#ff6fcf]">01</p>
-            <h2 className="mt-4 text-2xl font-bold">Import</h2>
-            <p className="mt-3 leading-7 text-[#b7c4d7]">
-              SD-card detection, date-based imports, safe eject, folder import,
-              and optional copy-to-library behavior.
-            </p>
-          </div>
-          <div>
-            <p className="text-4xl font-black text-[#ff6fcf]">02</p>
-            <h2 className="mt-4 text-2xl font-bold">Prepare</h2>
-            <p className="mt-3 leading-7 text-[#b7c4d7]">
-              Trims, marker shields, inline note editing, clip metadata,
-              inclusion toggles, and saved ordering.
-            </p>
-          </div>
-          <div>
-            <p className="text-4xl font-black text-[#ff6fcf]">03</p>
-            <h2 className="mt-4 text-2xl font-bold">Debrief</h2>
-            <p className="mt-3 leading-7 text-[#b7c4d7]">
-              Fullscreen title cards, timed note overlays, keyboard controls,
-              clicker taps, timeline scrubbing, and AirPlay output.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:px-16">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#74d3ff]">
-            Product flow
-          </p>
-          <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-            One session from SD card to classroom.
-          </h2>
-        </div>
-
-        <div className="grid gap-8">
-          {workflow.map((item) => (
-            <article
-              key={item.title}
-              className="grid overflow-hidden border border-[#1c314f] bg-[#0b1728] lg:grid-cols-[minmax(0,1fr)_22rem]"
-            >
-              <Image
-                src={item.image}
-                alt={item.alt}
-                width={1200}
-                height={760}
-                className="w-full bg-[#07111f] object-contain"
-              />
-              <div className="p-6 lg:p-8">
-                <h3 className="text-2xl font-bold">{item.title}</h3>
-                <p className="mt-4 leading-7 text-[#b7c4d7]">{item.body}</p>
+      {/* Feature strip */}
+      <section className="border-y border-white/10 bg-black/20 py-14 backdrop-blur-sm">
+        <div className="mx-auto grid w-[90%] gap-10 md:grid-cols-3">
+          {[
+            {
+              n: "01",
+              title: "Import",
+              body: "SD-card detection, date-based imports, and GoPro chapter grouping.",
+            },
+            {
+              n: "02",
+              title: "Prepare",
+              body: "Trims, markers, inline note editing, metadata, and clip ordering.",
+            },
+            {
+              n: "03",
+              title: "Debrief",
+              body: "Fullscreen playback, clicker taps, AirPlay, and timed note overlays.",
+            },
+          ].map(({ n, title, body }) => (
+            <div key={n} className="flex gap-5">
+              <span className="text-4xl font-black leading-none text-[#ff6fcf]/50">
+                {n}
+              </span>
+              <div>
+                <h2 className="text-lg font-bold text-white">{title}</h2>
+                <p className="mt-2 text-base leading-7 text-white/60">{body}</p>
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#f4f7fb] px-6 py-20 text-[#101827] sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#315d91]">
-              Instructor controls
-            </p>
-            <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-              Designed for presenting while teaching.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-[#516070]">
-              The presentation mode hides chrome when the cursor is idle and
-              lets the instructor stay with the students: jump to markers,
-              move between clips, pause, reverse, or exit using a keyboard or
-              Bluetooth clicker.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+      {/* Workflow */}
+      <section className="mx-auto w-[90%] py-24">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7dd8e8]">
+          Product flow
+        </p>
+        <h2 className="mb-20 text-5xl font-black text-white sm:text-6xl">
+          One session. SD card to classroom.
+        </h2>
+
+        <div className="flex flex-col gap-24">
+          {workflow.map((item, i) => (
+            <div
+              key={item.title}
+              className="grid gap-10 lg:grid-cols-2 lg:items-center"
+            >
+              {i % 2 === 1 && (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  width={1200}
+                  height={800}
+                  className="w-full rounded-xl object-contain"
+                />
+              )}
+
+              <div className={i % 2 === 1 ? "lg:pl-8" : "lg:pr-8"}>
+                <span className="text-8xl font-black leading-none text-[#ff6fcf]/20">
+                  {item.step}
+                </span>
+                <h3 className="mt-2 text-4xl font-bold leading-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-lg leading-8 text-white/65">
+                  {item.body}
+                </p>
+              </div>
+
+              {i % 2 === 0 && (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  width={1200}
+                  height={800}
+                  className="w-full rounded-xl object-contain"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Controls */}
+      <section className="border-y border-white/10 bg-black/20 py-20 backdrop-blur-sm">
+        <div className="mx-auto w-[90%]">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7dd8e8]">
+            Instructor controls
+          </p>
+          <h2 className="mb-4 text-5xl font-black text-white sm:text-6xl">
+            Designed for presenting while teaching.
+          </h2>
+          <p className="mb-12 max-w-xl text-lg leading-8 text-white/65">
+            Jump to markers, switch clips, pause, or exit — all from a keyboard
+            or Bluetooth clicker, without touching the mouse.
+          </p>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {controls.map((control) => (
               <div
                 key={control.title}
-                className="flex min-h-32 items-center gap-4 border border-[#202833] bg-black px-5 py-4 text-white"
+                className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/8 px-5 py-4"
               >
-                <span
-                  className="grid h-14 w-14 shrink-0 place-items-center bg-black text-2xl font-black text-white"
-                  aria-hidden="true"
-                >
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-white/10">
                   <Image
                     src={control.icon}
                     alt=""
@@ -250,15 +293,15 @@ export default function VideoDebriefsPage() {
                   />
                 </span>
                 <span className="min-w-0">
-                  <span className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    <span className="text-base font-bold">
+                  <span className="flex flex-wrap items-center gap-x-2 gap-y-2">
+                    <span className="text-base font-semibold text-white">
                       {control.title}
                     </span>
                     <KbdGroup>
                       {control.keys.map((key, index) => (
                         <Kbd
                           key={`${control.title}-${key}-${index}`}
-                          className="border-[#455366] bg-[#101722] text-[#f6f8ff]"
+                          className="border-white/20 bg-black/30 text-white/70"
                         >
                           {key}
                         </Kbd>
@@ -272,57 +315,21 @@ export default function VideoDebriefsPage() {
         </div>
       </section>
 
-      <section
-        id="media-needed"
-        className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:px-16"
-      >
-        <div className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#74d3ff]">
-            Placeholder media to replace
-          </p>
-          <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-            Replace these files with real product media.
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-[#c3cede]">
-            The current files are intentionally fake. Keep the filenames below
-            if you want to swap assets without touching code.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-4 text-[#c3cede] lg:grid-cols-2">
-          <div className="border border-[#1c314f] bg-[#0b1728] p-6">
-            <h3 className="text-xl font-bold text-white">Photos</h3>
-            <ul className="mt-4 space-y-3 leading-7">
-              <li>
-                <code>import.png</code>: screenshot of SD-card or folder import
-                with grouped GoPro chapters.
-              </li>
-              <li>
-                <code>review.png</code>: screenshot of clip review, player,
-                trim brackets, marker list, and metadata form.
-              </li>
-              <li>
-                <code>present.png</code>: screenshot of fullscreen presentation
-                with title card or timed note overlay.
-              </li>
-              <li>
-                <code>hero-poster.svg</code>: poster frame for the walkthrough
-                video.
-              </li>
-            </ul>
-          </div>
-          <div className="border border-[#1c314f] bg-[#0b1728] p-6">
-            <h3 className="text-xl font-bold text-white">Video</h3>
-            <p className="mt-4 leading-7">
-              <code>walkthrough-placeholder.mp4</code>: replace with a short
-              demo that opens on importing footage, shows marker/trim editing,
-              then switches into presentation mode with clicker-style jumps.
-            </p>
-            <p className="mt-4 leading-7">
-              Recommended export: 1920x1080 MP4, H.264, muted or lightly voiced,
-              under 25 MB for quick loading from GitHub Pages.
-            </p>
-          </div>
+      {/* Download CTA */}
+      <section className="relative overflow-hidden py-28 text-center">
+        <p className="relative mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#7dd8e8]">
+          Ready to start?
+        </p>
+        <h2 className="relative mb-10 text-5xl font-black text-white sm:text-6xl">
+          Free to download. No account needed.
+        </h2>
+        <div className="relative flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/video-debriefs/downloads"
+            className="inline-flex h-13 items-center rounded-full bg-[#ff6fcf] px-8 text-base font-bold uppercase tracking-[0.14em] text-[#130c24] transition hover:bg-[#ff9dde]"
+          >
+            Download for macOS
+          </Link>
         </div>
       </section>
     </main>

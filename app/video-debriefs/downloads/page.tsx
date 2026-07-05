@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Download Video Debriefs",
   description:
-    "Download Video Debriefs for macOS — a native app for GUE dive instructors to run video debriefs from GoPro footage.",
+    "Download Video Debriefs for macOS — an app for GUE dive instructors to run video debriefs from GoPro footage.",
 };
 
 const version = "0.3";
@@ -13,22 +13,37 @@ const dmgUrl = `/video-debriefs/downloads/${encodeURIComponent(dmgFilename)}`;
 
 export default function DownloadsPage() {
   return (
-    <main className="min-h-dvh bg-[#07111f] text-white">
-      <div className="mx-auto max-w-3xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
+    <main
+      className="min-h-dvh text-white"
+      style={{
+        background:
+          "linear-gradient(to bottom, #6ecad8 0%, #1a5c7a 18%, #0a2e48 35%, #041828 55%, #020c18 75%, #010810 100%)",
+      }}
+    >
+      {/* Nav */}
+      <nav className="mx-auto flex w-[90%] items-center justify-between py-5">
+        <Link
+          href="/"
+          className="text-base font-semibold uppercase tracking-[0.22em] text-white/60 transition hover:text-white"
+        >
+          2Prutsers
+        </Link>
         <Link
           href="/video-debriefs"
-          className="mb-12 inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-[#9fb4d1] transition hover:text-white"
+          className="text-sm font-semibold uppercase tracking-[0.22em] text-white/50 transition hover:text-white"
         >
           ← Video Debriefs
         </Link>
+      </nav>
 
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#74d3ff]">
+      <div className="mx-auto max-w-3xl px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#7dd8e8]">
           macOS · v{version}
         </p>
-        <h1 className="text-5xl font-black leading-[0.95] tracking-normal text-[#f6f8ff] sm:text-6xl">
+        <h1 className="text-5xl font-black leading-[0.95] tracking-normal text-white sm:text-6xl">
           Download
         </h1>
-        <p className="mt-6 text-lg leading-8 text-[#c3cede]">
+        <p className="mt-6 text-lg leading-8 text-white/65">
           Video Debriefs requires macOS 14 Sonoma or later.
         </p>
 
@@ -36,7 +51,7 @@ export default function DownloadsPage() {
           <a
             href={dmgUrl}
             download
-            className="inline-flex h-14 items-center gap-3 bg-[#ff6fcf] px-8 text-sm font-bold uppercase tracking-[0.16em] text-[#130c24] transition hover:bg-[#ff9dde]"
+            className="inline-flex h-14 items-center gap-3 rounded-full bg-[#ff6fcf] px-8 text-sm font-bold uppercase tracking-[0.16em] text-[#130c24] transition hover:bg-[#ff9dde]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,91 +65,84 @@ export default function DownloadsPage() {
             </svg>
             Download {dmgFilename}
           </a>
-          <p className="mt-3 text-xs text-[#6b7f97]">3.8 MB · macOS 14+</p>
+          <p className="mt-3 text-sm text-white/35">3.8 MB · macOS 14+</p>
         </div>
 
-        <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-[#6b7f97]">
+        <p className="mt-10 text-sm font-semibold uppercase tracking-[0.18em] text-white/40">
           Or install with Homebrew
         </p>
 
-        <div className="mt-3 rounded border border-[#1c314f] bg-[#0b1728] px-5 py-4">
-          <code className="font-mono text-sm text-[#74d3ff]">
+        <div className="mt-3 rounded-xl border border-white/10 bg-black/20 px-5 py-4 backdrop-blur-sm">
+          <code className="font-mono text-base text-[#7dd8e8]">
             brew install --cask 2Prutsers/tap/video-debriefs
           </code>
-          <p className="mt-3 text-xs text-[#6b7f97]">
-            Homebrew handles download, verification, and future upgrades via{" "}
-            <code className="text-[#9fb4d1]">brew upgrade --cask video-debriefs</code>.
+          <p className="mt-3 text-sm text-white/40">
+            Homebrew handles download, verification, and future upgrades via
+            <br />
+            <code className="text-white/60">brew upgrade --cask video-debriefs</code>
           </p>
         </div>
 
-        <div className="mt-16 border-t border-[#1c314f] pt-14">
-          <h2 className="text-2xl font-black text-[#f6f8ff]">How to install</h2>
+        <div className="mt-16 border-t border-white/10 pt-14">
+          <h2 className="text-2xl font-black text-white">How to install</h2>
           <ol className="mt-6 space-y-6">
             <li className="flex gap-5">
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 1
               </span>
-              <p className="leading-7 text-[#b7c4d7]">
+              <p className="leading-7 text-white/65">
                 Double-click the downloaded{" "}
-                <code className="rounded bg-[#0b1728] px-1.5 py-0.5 font-mono text-sm text-[#74d3ff]">
+                <code className="rounded-md border border-white/10 bg-black/20 px-1.5 py-0.5 font-mono text-sm text-[#7dd8e8]">
                   {dmgFilename}
                 </code>{" "}
                 to mount it.
               </p>
             </li>
             <li className="flex gap-5">
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 2
               </span>
-              <p className="leading-7 text-[#b7c4d7]">
+              <p className="leading-7 text-white/65">
                 Drag <strong className="text-white">Video Debriefs.app</strong> into your{" "}
                 <strong className="text-white">Applications</strong> folder.
               </p>
             </li>
             <li className="flex gap-5">
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center bg-[#ff6fcf] text-sm font-black text-[#130c24]">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#ff6fcf] text-sm font-black text-[#130c24]">
                 3
               </span>
-              <p className="leading-7 text-[#b7c4d7]">
+              <p className="leading-7 text-white/65">
                 Open the app. macOS will verify it and launch.
               </p>
             </li>
           </ol>
         </div>
 
-        <div className="mt-16 border-t border-[#1c314f] pt-14">
-          <h2 className="text-2xl font-black text-[#f6f8ff]">Updates</h2>
-          <p className="mt-4 leading-7 text-[#b7c4d7]">
-            New releases are published here. The current version is{" "}
-            <strong className="text-white">v{version}</strong>. When a new
-            version is available, re-download from this page and drag the new
-            app into Applications, replacing the old one.
-          </p>
-          <p className="mt-4 font-mono text-xs text-[#6b7f97]">
-            Update metadata:{" "}
-            <a
-              href="/video-debriefs/downloads/latest.json"
-              className="underline transition hover:text-[#9fb4d1]"
-            >
-              /video-debriefs/downloads/latest.json
-            </a>
+        <div className="mt-16 border-t border-white/10 pt-14">
+          <h2 className="text-2xl font-black text-white">Updates</h2>
+          <p className="mt-4 leading-7 text-white/65">
+            The app checks for updates automatically. You can also check manually
+            at any time from <strong className="text-white">Video Debriefs → Check for Updates…</strong> in
+            the menu bar. The current version is{" "}
+            <strong className="text-white">v{version}</strong>.
           </p>
         </div>
 
-        <div className="mt-16 border-t border-[#1c314f] pt-14">
-          <h2 className="text-2xl font-black text-[#f6f8ff]">
+        <div className="mt-16 border-t border-white/10 pt-14">
+          <h2 className="text-2xl font-black text-white">
             Try it with sample footage
           </h2>
-          <p className="mt-4 leading-7 text-[#b7c4d7]">
-            No GoPro handy? Download the sample footage disk image. Mount it and
-            Video Debriefs will detect it as a GoPro SD card automatically —
-            just open Import and the clips will be ready to bring in.
+          <p className="mt-4 leading-7 text-white/65">
+            No GoPro handy? Download the sample footage disk image. Double-click
+            <code className="rounded-md border border-white/10 bg-black/20 px-1.5 py-0.5 font-mono text-sm text-[#7dd8e8]">Video Debriefs Samples.dmg</code> to mount it, and Video Debriefs will detect it as a GoPro SD
+            card automatically — just open Import and the clips will be ready to
+            bring in, and try reviewing, trimming, marking, and presenting them.
           </p>
           <div className="mt-6">
             <a
               href="/video-debriefs/downloads/Video%20Debriefs%20Samples.dmg"
               download
-              className="inline-flex h-12 items-center gap-3 border border-[#375273] px-6 text-sm font-bold uppercase tracking-[0.16em] text-[#d9e7ff] transition hover:border-[#74d3ff] hover:text-white"
+              className="inline-flex h-12 items-center gap-3 rounded-full border border-white/20 px-6 text-sm font-bold uppercase tracking-[0.16em] text-white/75 transition hover:border-[#7dd8e8] hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,16 +156,16 @@ export default function DownloadsPage() {
               </svg>
               Download Sample Footage
             </a>
-            <p className="mt-3 text-xs text-[#6b7f97]">8.3 MB · 8 sample clips · includes README</p>
+            <p className="mt-3 text-sm text-white/35">8.3 MB · 8 sample clips · includes README</p>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-[#1c314f] pt-14">
-          <p className="text-sm leading-7 text-[#6b7f97]">
+        <div className="mt-16 border-t border-white/10 pt-14 pb-16">
+          <p className="text-sm leading-7 text-white/40">
             Questions or issues?{" "}
             <a
               href="mailto:video-debriefs@2prutsers.com"
-              className="text-[#9fb4d1] underline transition hover:text-white"
+              className="text-white/60 underline transition hover:text-white"
             >
               video-debriefs@2prutsers.com
             </a>
