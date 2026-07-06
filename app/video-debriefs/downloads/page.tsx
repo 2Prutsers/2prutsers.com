@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Download Video Debriefs for macOS — an app for GUE dive instructors to run video debriefs from GoPro footage.",
 };
 
-const version = "0.3";
+const version = "0.4";
 const dmgFilename = `Video Debriefs v${version}.dmg`;
 const dmgUrl = `/video-debriefs/downloads/${encodeURIComponent(dmgFilename)}`;
 

@@ -1,8 +1,8 @@
 {
-  "version": "0.3",
-  "build": "v0.3",
-  "releaseDate": "2026-07-04",
-  "url": "https://2prutsers.com/video-debriefs/downloads/Video%20Debriefs%20v0.3.dmg",
+  "version": "0.4",
+  "build": "v0.4",
+  "releaseDate": "2026-07-07",
+  "url": "https://2prutsers.com/video-debriefs/downloads/Video%20Debriefs%20v0.4.dmg",
   "minimumSystemVersion": "14.0",
-  "releaseNotes": "Bug fixes and improvements."
+  "releaseNotes": "Fixed a bug where the clip player would restart mid-playback after importing a session. Import view now shows a completion dialog and blocks navigation while copying files."
 }
