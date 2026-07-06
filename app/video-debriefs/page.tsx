@@ -109,7 +109,7 @@ export default function VideoDebriefsPage() {
     }}>
       <CausticOverlay />
       {/* Nav */}
-      <nav className="mx-auto flex w-[90%] items-center justify-between py-5">
+      <nav className="mx-auto flex w-[90%] max-w-[1400px] items-center justify-between py-5">
         <Link
           href="/"
           className="text-base font-semibold uppercase tracking-[0.22em] text-white/60 transition hover:text-white"
@@ -125,7 +125,7 @@ export default function VideoDebriefsPage() {
       </nav>
 
       {/* Hero */}
-      <section className="relative mx-auto w-[90%] pb-8 pt-8 text-center">
+      <section className="relative mx-auto w-[90%] max-w-[1400px] pb-8 pt-8 text-center">
         <div className="relative mb-6 flex justify-center">
           <Image
             src="/video-debriefs/app-icon.svg"
@@ -183,7 +183,7 @@ export default function VideoDebriefsPage() {
 
       {/* Feature strip */}
       <section className="border-y border-white/10 bg-black/20 py-14 backdrop-blur-sm">
-        <div className="mx-auto grid w-[90%] gap-10 md:grid-cols-3">
+        <div className="mx-auto grid w-[90%] max-w-[1400px] gap-10 md:grid-cols-3">
           {[
             {
               n: "01",
@@ -215,7 +215,7 @@ export default function VideoDebriefsPage() {
       </section>
 
       {/* Workflow */}
-      <section className="mx-auto w-[90%] py-24">
+      <section className="mx-auto w-[90%] max-w-[1400px] py-24">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7dd8e8]">
           Product flow
         </p>
@@ -267,7 +267,7 @@ export default function VideoDebriefsPage() {
 
       {/* Controls */}
       <section className="border-y border-white/10 bg-black/20 py-20 backdrop-blur-sm">
-        <div className="mx-auto w-[90%]">
+        <div className="mx-auto w-[90%] max-w-[1400px]">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7dd8e8]">
             Instructor controls
           </p>
