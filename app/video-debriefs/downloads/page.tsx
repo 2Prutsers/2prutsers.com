@@ -173,6 +173,26 @@ export default function DownloadsPage() {
           </div>
         </div>
 
+        <div className="mt-16 border-t border-white/10 pt-14">
+          <h2 className="text-2xl font-black text-white">Watch the app walkthrough</h2>
+          <p className="mt-4 leading-7 text-white/65">
+            See the full workflow in action — importing footage from a GoPro SD card, preparing and annotating clips, and running a live debrief.
+          </p>
+          <div className="mt-6">
+            <a
+              href="https://youtu.be/pSTdEK-J-8M"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/8 px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-white/15"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+                <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.84Z" />
+              </svg>
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+
         <div className="mt-16 border-t border-white/10 pt-14 pb-16">
           <p className="text-sm leading-7 text-white/40">
             Questions or issues?{" "}

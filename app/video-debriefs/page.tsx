@@ -116,12 +116,25 @@ export default function VideoDebriefsPage() {
         >
           2Prutsers
         </Link>
-        <Link
-          href="/video-debriefs/downloads"
-          className="inline-flex h-10 items-center rounded-full bg-[#ff6fcf] px-5 text-sm font-bold uppercase tracking-[0.14em] text-[#130c24] transition hover:bg-[#ff9dde]"
-        >
-          Download
-        </Link>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://youtu.be/pSTdEK-J-8M"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/60 transition hover:text-white sm:inline-flex"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+              <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.84Z" />
+            </svg>
+            Walkthrough
+          </a>
+          <Link
+            href="/video-debriefs/downloads"
+            className="inline-flex h-10 items-center rounded-full bg-[#ff6fcf] px-5 text-sm font-bold uppercase tracking-[0.14em] text-[#130c24] transition hover:bg-[#ff9dde]"
+          >
+            Download
+          </Link>
+        </div>
       </nav>
 
       {/* Hero */}
@@ -332,6 +345,19 @@ export default function VideoDebriefsPage() {
           >
             Download for macOS
           </Link>
+        </div>
+        <div className="relative mt-6">
+          <a
+            href="https://youtu.be/pSTdEK-J-8M"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/50 transition hover:text-white"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+              <path d="M6.3 2.84A1.5 1.5 0 0 0 4 4.11v11.78a1.5 1.5 0 0 0 2.3 1.27l9.344-5.891a1.5 1.5 0 0 0 0-2.538L6.3 2.84Z" />
+            </svg>
+            Watch app walkthrough on YouTube
+          </a>
         </div>
       </section>
     </main>
